@@ -3,7 +3,11 @@ dotenv.config()
 import express from 'express'
 
 import { PORT } from "./config.js";
+import { getCollection } from './shopify/collection.js';
+import { getProduct } from './shopify/product.js';
 const app = express();
+
+app.get("/api/shopify/collection", getCollection);
 
 app.get("/", (req, res) => {
   res.status(200).send('Ok')
